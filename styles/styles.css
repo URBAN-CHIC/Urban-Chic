@@ -1,0 +1,27 @@
+@keyframes zoomIn {
+    from {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    to{
+        transform: scale(1);
+    }
+
+  }
+  
+  .zoomIn {
+    animation-name: zoomIn;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+
+  }
+
+  .urban-bg {
+    background-image: url('../img/urbanstyle.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
