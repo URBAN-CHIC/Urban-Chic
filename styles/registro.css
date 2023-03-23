@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url("../img/ropa-urbana.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.form-value{
+    width: 90%;
+    max-width: 350px;
+    margin: auto;
+    padding: 15px;
+    background-color: rgba(22, 21, 21, 0.445);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 40px;
+  
+}
+
+h2{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 100%;
+    max-width: 350px;
+    border-bottom: 2px solid white;
+}
+
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+    top: -5px;
+}
+
+.inputbox input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border:none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 5px;
+    color: white;
+}
+
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: 1.2 em;
+    top: 20px;
+}
+
+.selectbox{
+    position: relative;
+    margin: 30px 0;
+    width: 100%;
+    max-width: 350px;
+    border-bottom: 2px solid white;
+}
+
+.selectbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.selectbox select{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border:none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 5px;
+    color: white;
+}
+
+.selectbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: 1.2 em;
+    top: 20px;
+}
+
+.forget{
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.forget label input{
+    margin-right:3px;
+}
+
+.forget label a{
+    color: white;
+    text-decoration: none;
+}
+
+.forget label a:hover{
+    text-decoration: underline;
+}
+
+button{
+    width: 100%;
+    max-width: 350px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: white;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 10;
+}
