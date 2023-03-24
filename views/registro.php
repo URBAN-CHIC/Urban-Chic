@@ -1,47 +1,55 @@
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/registro.css">
-    <title>Document</title>
+    <title>Crear Cuenta</title>
 </head>
 <body>
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="">
+                <form action="../back/register.php" method="POST">
                     <h2>Registro</h2>
                     
                     <div class="inputbox">
                         <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" required>
-                        <label for="">Nombres</label>
+                        <input type="text" name="nombre">
+                        <label for="">Nombre</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" required>
+                        <input type="text" name="apellido_paterno">
                         <label for="">Apellido paterno</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" required>
+                        <input type="text" name="apellido_materno">
                         <label for="">Apellido materno</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required>
+                        <input type="email" name="email">
                         <label for="">Correo electrónico</label>
                     </div>
                     <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="password" name="pass">
+                        <label for="">Contraseña</label>
+                    </div>
+                    <div class="inputbox">
                         <ion-icon name="call-outline"></ion-icon>
-                        <input type="tel" required>
+                        <input type="tel" name="telefono">
                         <label for="">Número de celular</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="transgender-outline"></ion-icon>
-                        <select required>
+                        <select name="sexo">
                             <option value="" disabled selected>Selecciona tu sexo</option>
                             <option value="femenino">Femenino</option>
                             <option value="masculino">Masculino</option>
@@ -50,11 +58,11 @@
                     </div>
                     <div class="inputbox">
                         <ion-icon name="calendar-outline"></ion-icon>
-                        <input type="number" min="1" max="120" required>
+                        <input type="number" min="1" max="120" name="edad">
                         <label for="">Edad</label>
                     </div>
-                    <button>Registrarse</button>
-                    <div class="login">
+                    <button type="submit">Registrarse</button>
+                    <div class="login" style="margin-top:20px">
                         <p>¿Ya tienes una cuenta? <a href="./login.html">Iniciar sesión</a></p>
                     </div>
                 </form>
