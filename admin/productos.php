@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Chic</title>
+    <title>Administrar productos</title>
 </head>
 <body>
+    
+    <h1 class="text-center mt-4">Administrar productos</h1>
 
-    <h1>hola mundo</h1>
 </body>
 </html>
