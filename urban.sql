@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-03-2023 a las 21:29:50
+-- Tiempo de generación: 29-03-2023 a las 22:00:52
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -25,19 +25,29 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `registro` (IN `p_nombre` VARCHAR(50), IN `p_apellidoPaterno` VARCHAR(50), IN `p_apellidoMaterno` VARCHAR(50), IN `p_email` VARCHAR(100), IN `p_pass` VARCHAR(100), IN `p_telefono` VARCHAR(20), IN `p_sexo` ENUM('M','F','O'), IN `p_edad` INT, IN `p_rol` ENUM('cliente','admin'))   BEGIN
-  DECLARE cliente_id INT;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteUser` (IN `p_id` INT)   BEGIN
+  -- Eliminar usuario en la tabla usuarios
+  DELETE FROM usuarios WHERE id_cliente = p_id;
   
-  INSERT INTO clientes (nombre, apellidoPaterno, apellidoMaterno, email, pass, telefono, sexo, edad, rol)
-  VALUES (p_nombre, p_apellidoPaterno, p_apellidoMaterno, p_email, p_pass, p_telefono, p_sexo, p_edad, p_rol);
+  -- Eliminar cliente en la tabla clientes
+  DELETE FROM clientes WHERE id = p_id;
   
-  SET cliente_id = LAST_INSERT_ID();
+END$$
 
-  INSERT INTO users (nombre, apellidoPaterno, email, pass, rol, id_cliente)
-  SELECT nombre, apellidoPaterno, email, pass, rol, cliente_id
-  FROM clientes
-  WHERE id = cliente_id;
-  
+CREATE DEFINER=`root`@`localhost` PROCEDURE `registerUser` (IN `p_nombre` VARCHAR(50), IN `p_apellidoPaterno` VARCHAR(50), IN `p_apellidoMaterno` VARCHAR(50), IN `p_email` VARCHAR(100), IN `p_pass` VARCHAR(100), IN `p_telefono` VARCHAR(20), IN `p_sexo` VARCHAR(30), IN `p_edad` INT, IN `p_rol` ENUM('cliente','admin'))   BEGIN
+DECLARE cliente_id INT;
+
+-- Insertamos el cliente en la tabla clientes
+INSERT INTO clientes (nombre, apellidoPaterno, apellidoMaterno, email, telefono, sexo, edad, rol)
+VALUES (p_nombre, p_apellidoPaterno, p_apellidoMaterno, p_email, p_telefono, p_sexo, p_edad, p_rol);
+
+-- Obtenemos el ID del cliente recién insertado
+SET cliente_id = LAST_INSERT_ID();
+
+-- Insertamos el usuario en la tabla usuarios
+INSERT INTO usuarios (email, pass, rol, id_cliente)
+VALUES (p_email, p_pass, p_rol, cliente_id);
+
 END$$
 
 DELIMITER ;
@@ -54,42 +64,25 @@ CREATE TABLE `clientes` (
   `apellidoPaterno` varchar(50) NOT NULL,
   `apellidoMaterno` varchar(50) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
-  `pass` varchar(100) NOT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `sexo` varchar(50) DEFAULT NULL,
+  `sexo` varchar(50) NOT NULL,
   `edad` int(11) DEFAULT NULL,
   `rol` enum('cliente','admin') DEFAULT 'cliente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `clientes`
---
-
-INSERT INTO `clientes` (`id`, `nombre`, `apellidoPaterno`, `apellidoMaterno`, `email`, `pass`, `telefono`, `sexo`, `edad`, `rol`) VALUES
-(4, 'Fernando', 'delacruz', 'Zapata', 'ferdlcskate@gmail.com', '$2y$10$UtWmzl6nMCKHwLfAb1WRsuIIb7MY33LSk1KdNdP1Zd/CmTl/jFN56', '4781023128', '', 21, 'cliente');
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `apellidoPaterno` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `pass` varchar(100) NOT NULL,
   `rol` enum('cliente','admin') DEFAULT 'cliente',
   `id_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `nombre`, `apellidoPaterno`, `email`, `pass`, `rol`, `id_cliente`) VALUES
-(4, 'Fernando', 'delacruz', 'ferdlcskate@gmail.com', '$2y$10$UtWmzl6nMCKHwLfAb1WRsuIIb7MY33LSk1KdNdP1Zd/CmTl/jFN56', 'cliente', 4);
 
 --
 -- Índices para tablas volcadas
@@ -102,9 +95,9 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `users`
+ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_cliente` (`id_cliente`);
 
@@ -116,23 +109,23 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `users`
+-- Filtros para la tabla `usuarios`
 --
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`);
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

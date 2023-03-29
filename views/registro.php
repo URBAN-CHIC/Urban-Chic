@@ -5,13 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/registro.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
     <title>Crear Cuenta</title>
 </head>
 <body>
+
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="../back/register.php" method="POST">
+                <form action="" method="POST">
                     <h2>Registro</h2>
                     
                     <div class="inputbox">
@@ -58,7 +61,7 @@
                         <input type="number" min="1" max="120" name="edad">
                         <label for="">Edad</label>
                     </div>
-                    <button type="submit">Registrarse</button>
+                    <button type="submit" name="submit">Registrarse</button>
                     <div class="login" style="margin-top:20px">
                         <p>¿Ya tienes una cuenta? <a href="./login.html">Iniciar sesión</a></p>
                     </div>
@@ -66,6 +69,9 @@
             </div>
         </div>
     </section>
-    
+
+    <?php include("../back/register.php")?>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
