@@ -1,12 +1,4 @@
-$(document).ready(function () {
-  $(".sidebar-link").click(function (event) {
-    event.preventDefault();
-    var view = $(this).data("view");
-    $.get(view + ".php", function (data) {
-      $("#content").html(data);
-    });
-  });
-});
+
 
 //eliminar
 
