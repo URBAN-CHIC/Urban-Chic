@@ -90,11 +90,13 @@ $sql = "CALL registerUser('$nombre', '$apellidoPaterno', '$apellidoMaterno', '$e
 
 if (mysqli_query($conn, $sql)) {
   echo "<script>
-  Swal.fire({
-    icon: 'success',
-    title: 'Usuario registrado correctamente'
-  });
-</script>";
+    Swal.fire({
+      icon: 'success',
+      title: 'Usuario registrado correctamente'
+    }).then(function() {
+      window.location.href = 'login.php';
+    });
+  </script>";
 } else {
   echo "<script>
   Swal.fire({

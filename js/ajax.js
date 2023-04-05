@@ -29,3 +29,5 @@ $(document).ready(function () {
     window.location.href = "../back/editaruser.php?id=" + id;
   });
 });
+
+//Tiempo de sesion
