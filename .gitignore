@@ -1,5 +1,2 @@
-# Ignorar archivos dentro de la carpeta productos
 productos/*
-
-# Permitir la carpeta productos
-!productos/
+!productos/hola.png
