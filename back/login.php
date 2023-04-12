@@ -15,7 +15,11 @@ if (isset($_POST['login'])) {
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $remember = isset($_POST['remember']);
 
-    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+    $sql = "SELECT usuarios.*, clientes.nombre, clientes.apellidoPaterno FROM usuarios 
+        JOIN clientes ON usuarios.id_cliente = clientes.id 
+        WHERE usuarios.email = '$email'";
+
+    // $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
 
     if (!$result) {
@@ -42,19 +46,22 @@ if (isset($_POST['login'])) {
             $_SESSION['nombre'] = $row['nombre'];
             $_SESSION['apellido_paterno'] = $row['apellidoPaterno'];
             $_SESSION['email'] = $row['email'];
+
+          
+            
             if ($remember) {
                 setcookie('remember_email', $email, time() + 3600 * 24 * 7);
             } else {
                 setcookie('remember_email', '', time() - 3600);
             }
             if ($row['rol'] == 'admin') {
-                echo "<script>
+               echo "<script>
                 Swal.fire({
                     icon: 'success',
                     title: 'Bienvenido!!',
-                    text: 'Ha iniciado sesión correctamente como administrador.',
+                    text: 'Ha iniciado sesión correctamente como " . $_SESSION['nombre'] . " " . $_SESSION['apellido_paterno'] . ".',
                 }).then(function() {
-                    window.location.href = '../admin/paneladmin.php';
+                window.location.href = '../admin/paneladmin.php';
                   });
                 </script>";
                 exit;       
@@ -63,11 +70,11 @@ if (isset($_POST['login'])) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Bienvenido!!',
-                    text: 'Ha iniciado sesión correctamente como usuario.',
+                    text: 'Ha iniciado sesión correctamente como " . $_SESSION['nombre'] . " " . $_SESSION['apellido_paterno'] . ".',
                 }).then(function() {
                     window.location.href = '../views/urbanChics.php';
-                  });
-                </script>";
+                });
+            </script>";
                 exit;
             }
         }
@@ -82,6 +89,8 @@ if (isset($_POST['login'])) {
     }
 
 }
+
+
 
 mysqli_close($conn);
 ?>

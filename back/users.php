@@ -35,7 +35,10 @@ if (mysqli_num_rows($resultado) > 0) {
     echo '<thead class="thead-dark bg-dark text-white text-center"><tr><th>ID</th><th>Nombre</th><th>Apellido paterno</th><th>Apellido materno</th><th>Email</th><th>Teléfono</th><th>Sexo</th><th>Edad</th><th>Rol</th><th>Acciones</th></tr></thead>';
     echo '<tbody>';
     while($fila = mysqli_fetch_assoc($resultado)) {
-      echo "<tr><td>" . $fila["id"] . "</td><td>" . $fila["nombre"] . "</td><td>" . $fila["apellidoPaterno"] . "</td><td>" . $fila["apellidoMaterno"] . "</td><td>" . $fila["email"] . "</td><td>" . $fila["telefono"] . "</td><td>" . $fila["sexo"] . "</td><td>" . $fila["edad"] . "</td><td>" . $fila["rol"] . "</td><td><div class='btn-group' role='group'><button type='button' class='btn btn-primary btn-editar' data-id='" . $fila["id"] . "'>Editar</button><button type='button' class='btn btn-danger btn-eliminar ms-2' data-id='" . $fila["id"] . "'>Eliminar</button></div></td></tr>";
+      echo "<tr><td>" . $fila["id"] . "</td><td>" . $fila["nombre"] . "</td><td>" . $fila["apellidoPaterno"] . "</td><td>" . $fila["apellidoMaterno"] . "</td><td>" . $fila["email"] . "</td><td>" . $fila["telefono"] . "</td><td>" . $fila["sexo"] . "</td><td>" . $fila["edad"] . "</td><td>" . $fila["rol"] . "</td><td><div class='btn-group' role='group'>
+      
+      <button type='button' class='btn btn-primary btn-editar' data-id='" . $fila["id"] . "'>Editar</button>
+      <button type='button' class='btn btn-danger btn-eliminar ms-2' data-id='" . $fila["id"] . "'>Eliminar</button></div></td></tr>";
     }
     echo '</tbody>';
     echo '</table>';
@@ -49,5 +52,3 @@ if (mysqli_num_rows($resultado) > 0) {
 
 
 mysqli_close($conn);
-?>
-

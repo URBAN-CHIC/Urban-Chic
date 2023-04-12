@@ -1,6 +1,6 @@
 <?php 
 include "../back/checkSession.php"; 
-include "../back/rolVerify.php"
+include "../back/rolVerify.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +14,7 @@ include "../back/rolVerify.php"
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
     <link href="../styles/app.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.png">
     <title>Panel de administracion</title>
 </head>
 <body>
@@ -31,13 +32,13 @@ include "../back/rolVerify.php"
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" data-view="productos">
+						<a class="sidebar-link d-page" data-view="productos">
             <i class="bi bi-bag"></i> <span class="align-middle">Productos</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" data-view="usuarios">
+						<a class="sidebar-link d-page" data-view="usuarios">
             <i class="bi bi-person"></i> <span class="align-middle">Usuarios</span>
             </a>
 					</li>
@@ -45,11 +46,26 @@ include "../back/rolVerify.php"
 
 		<div class="main">
 
-			<nav class="navbar navbar-expand navbar-light navbar-bg">
-				<a class="sidebar-toggle js-sidebar-toggle">
-          <i class="hamburger align-self-center"></i>
+    <nav class="navbar navbar-expand-sm navbar-light navbar-bg">
+   
+    <a class="sidebar-toggle js-sidebar-toggle">
+        <i class="hamburger align-self-center"></i>
+    </a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown" style="list-style:none;">
+        <a class=" dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="position: relative;">
+         <img src="../img/avatar.png" alt="Foto de perfil" style="width: 30px; height: 30px; border-radius: 50%;">
+         <?php echo $_SESSION['nombre'] . ' ' . $_SESSION['apellido_paterno']; ?>
         </a>
-        </nav>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" style="position: absolute; right: 0;">
+            <li><a class="dropdown-item" href="#">Opción 1</a></li>
+            <li><a class="dropdown-item" href="#">Ver perfil</a></li>
+            <li><a class="dropdown-item" href="../back/logout.php">Cerrar Sesion</a></li>
+          </ul>
+        </li>
+      </ul>
+    </ul>
+</nav>
 
         <div class="container">
           <div class="row">
@@ -64,9 +80,10 @@ include "../back/rolVerify.php"
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
   <script src="../js/index.js"></script>
-     <script src="../js/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  <script src="../js/app.js"></script>
 </body>
 </html>

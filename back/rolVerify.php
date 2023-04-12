@@ -9,12 +9,14 @@ if (!isset($_SESSION['rol'])) {
 
 if ($_SESSION['rol'] == 'admin') {
     $allowed_paths = array(
-        '/urbanchic/admin/paneladmin.php'
+        '/urbanchic/admin/paneladmin.php',
+        '/urbanchic/back/logout.php'
     );
 } elseif ($_SESSION['rol'] == 'cliente') {
  
     $allowed_paths = array(
         '/urbanchic/views/urbanChics.php',
+        '/urbanchic/back/logout.php'
     );
 } else {
 

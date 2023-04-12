@@ -30,6 +30,7 @@
                 <div class="forget">
                     <label for=""><input type="checkbox" name="remember">Remember me  <a href="">Forget password</a></label>
                 </div>
+
                 <button type="submit" name="login">Log in</button>
                 <div class="register">
                     <p>Don't have an account <a href="./registro.php">Register</a></p>
