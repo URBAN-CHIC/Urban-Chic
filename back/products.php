@@ -14,8 +14,18 @@ if (!$conn) {
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
+    $sql = "SELECT imagen FROM ropa WHERE id = $id";
+    $resultado = mysqli_query($conn, $sql);
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        $fila = mysqli_fetch_assoc($resultado);
+        $imagen = $fila['imagen'];
+    }
+
     $sql = "DELETE FROM ropa WHERE id = $id";
     if (mysqli_query($conn, $sql)) {
+        $ruta_destino = '../productos/' . $imagen;
+        unlink($ruta_destino);
+        
         echo "Registro eliminado correctamente.";
     } else {
         echo "Error al eliminar el registro: " . mysqli_error($conn);
@@ -23,6 +33,7 @@ if (isset($_POST['id'])) {
     }
     exit;
 }
+
 
 //mostrar registros
 $sql = "SELECT * FROM ropa";
