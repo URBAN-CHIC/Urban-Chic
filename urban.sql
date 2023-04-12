@@ -141,6 +141,7 @@ CREATE TABLE ropa (
   talla VARCHAR(10) NOT NULL,
   precio DECIMAL(10, 2) NOT NULL,
   categoria VARCHAR(255) NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
 
