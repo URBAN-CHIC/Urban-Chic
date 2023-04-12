@@ -28,16 +28,13 @@ if (isset($_POST['id'])) {
 $sql = "SELECT * FROM ropa";
 $resultado = mysqli_query($conn, $sql);
 
-
-
-
 if (mysqli_num_rows($resultado) > 0) {
     echo '<div class="table-responsive mt-5">';
     echo '<table class="table table-striped table-bordered">';
-    echo '<thead class="thead-dark bg-dark text-white text-center"><tr><th>ID</th><th>Nombre</th><th>Marca</th><th>Talla</th><th>Precio</th><th>Categoría</th><th>Acciones</th></tr></thead>';
+    echo '<thead class="thead-dark bg-dark text-white text-center"><tr><th>ID</th><th>Nombre</th><th>Marca</th><th>Talla</th><th>Precio</th><th>Categoría</th><th>Imagen</th><th>Acciones</th></tr></thead>';
     echo '<tbody>';
     while ($fila = mysqli_fetch_assoc($resultado)) {
-        echo "<tr><td>" . $fila["id"] . "</td><td>" . $fila["nombre"] . "</td><td>" . $fila["marca"] . "</td><td>" . $fila["talla"] . "</td><td>" . $fila["precio"] . "</td><td>" . $fila["categoria"] . "</td><td><div class='btn-group' role='group'><button type='button' class='btn btn-primary editar-producto' data-id='" . $fila["id"] . "'>Editar</button><button type='button' class='btn btn-danger eliminar-producto ms-2' data-id='" . $fila["id"] . "'>Eliminar</button></div></td></tr>";
+        echo "<tr><td>" . $fila["id"] . "</td><td>" . $fila["nombre"] . "</td><td>" . $fila["marca"] . "</td><td>" . $fila["talla"] . "</td><td>" . $fila["precio"] . "</td><td>" . $fila["categoria"] . "</td><td><img src='../productos/" . $fila["imagen"] . "' width='100px'></td><td><div class='btn-group' role='group'><button type='button' class='btn btn-primary editar-producto' data-id='" . $fila["id"] . "'>Editar</button><button type='button' class='btn btn-danger eliminar-producto ms-2' data-id='" . $fila["id"] . "'>Eliminar</button></div></td></tr>";
     }
     echo '</tbody>';
     echo '</table>';
@@ -46,6 +43,5 @@ if (mysqli_num_rows($resultado) > 0) {
     echo "No se encontraron resultados.";
 }
 echo '<div class="mt-5"><button type="button" class="btn btn-success mb-5 agregar-producto" >Agregar Producto</button></div>';
-
 
 mysqli_close($conn);

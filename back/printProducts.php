@@ -20,7 +20,7 @@ $result = $conn->query($sql);
     ?>
     <div class="col-sm-6 mt-4 col-md-4 col-lg-3">
       <div class="card">
-        <img src="#" class="card-img-top" alt="Imagen del producto">
+        <img src="../productos/<?php echo $row['imagen']; ?>" class="card-img-top" alt="Imagen del producto" style="width: 250px;">
         <div class="card-body">
           <h5 class="card-title"><?php echo $row['nombre']; ?></h5>
           <p class="card-text"><?php echo $row['marca']; ?></p>
