@@ -27,6 +27,8 @@ $result = $conn->query($sql);
           <p class="card-text"><?php echo $row['talla']; ?></p>
           <p class="card-text"><?php echo $row['precio']; ?></p>
           <p class="card-text"><?php echo $row['categoria']; ?></p>
+          <button class="btn btn-success">comprar</button>
+          <button class="btn btn-success">añadir al carrito</button>
         </div>
       </div>
     </div>
