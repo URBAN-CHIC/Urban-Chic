@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
 include 'logs.php';
 
 $servername = "localhost";
@@ -16,6 +19,18 @@ if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $remember = isset($_POST['remember']);
+
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $captcha = $_POST['g-recaptcha-response'];
+    $secretkey = "6LdhGIYlAAAAAHUSJq6X9ZixLDs2zTqB_3N9lLAh";
+
+    $respuesta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&remoteip=$ip");
+    $atributos = json_decode($respuesta, TRUE);
+    $errors = array();
+
+    if(!$atributos['success']){
+        echo 'Revisa el captcha';
+    };
 
     $sql = "SELECT usuarios.*, clientes.nombre, clientes.apellidoPaterno, clientes.apellidoMaterno, clientes.telefono, clientes.sexo, clientes.edad FROM usuarios 
         JOIN clientes ON usuarios.id_cliente = clientes.id 

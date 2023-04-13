@@ -1,4 +1,7 @@
 <?php 
+
+error_reporting(0);
+
 include "../back/checkSession.php"; 
 include "../back/rolVerify.php";
 

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Iniciar sesion</title>
 </head>
 <body>
@@ -27,14 +30,12 @@
                     <input type="password" name="password" required>
                     <label for="">Password</label>
                 </div>
-                <div class="forget">
-                    <label for=""><input type="checkbox" name="remember">Remember me  <a href="">Forget password</a></label>
+
+                <div class="mb-3">
+                    <div class="g-recaptcha" data-sitekey="6LdhGIYlAAAAACbzCJ0bXP_phx4FivJSPfI213Wi" required></div>
                 </div>
 
                 <button type="submit" name="login">Log in</button>
-                <div class="register">
-                    <p>Don't have an account <a href="./registro.php">Register</a></p>
-                </div>
             </form>
         </div>
     </div>

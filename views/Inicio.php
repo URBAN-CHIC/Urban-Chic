@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -48,11 +50,6 @@
           
         </ul>
         <a href=""><i class="bi bi-cart text-white me-3"></i></a>
-        <form class="d-flex" role="search">
-          
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -70,7 +67,7 @@
   </div>
 </div>
             
-<footer class="bg-dark text-white fixed-bottom">
+<!-- <footer class="bg-dark text-white fixed-bottom">
   <div class="container py-3">  
     <div class="row">
       <div class="col-md-3">
@@ -110,7 +107,7 @@
   </div>
   </div>
   
-</footer>
+</footer> -->
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

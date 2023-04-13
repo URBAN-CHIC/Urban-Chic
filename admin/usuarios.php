@@ -17,7 +17,7 @@
 
 <?php include '../back/users.php'?>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="../js/ajax.js"></script>   
   <script src="../js/app.js"></script>
 </body>
