@@ -1,4 +1,5 @@
 <?php
+include 'logs.php';
 
 $servername = "localhost";
 $username = "root";
@@ -51,6 +52,8 @@ if (isset($_POST['guardar'])) {
   $result = mysqli_query($conn, $query);
 
   if ($result) {
+    $ip_usuario = $_SERVER['REMOTE_ADDR'];
+    registrarLog("update_success", "usuario actualizado satisfactoriamente" . $_SESSION['nombre'], $ip_usuario);
     echo "Los datos se actualizaron correctamente.";
   } else {
     echo "Error al actualizar los datos: " . mysqli_error($conn);

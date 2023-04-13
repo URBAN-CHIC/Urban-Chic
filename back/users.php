@@ -1,4 +1,6 @@
 <?php
+include 'logs.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -17,6 +19,8 @@ if (isset($_POST['id'])) {
 
   $sql = "CALL deleteUser($id)";
   if (mysqli_query($conn, $sql)) {
+    $ip_usuario = $_SERVER['REMOTE_ADDR'];
+    registrarLog("delete_success", "Usuario eliminado satisfactoriamente" . $_SESSION['nombre'], $ip_usuario);
     echo "Registro eliminado correctamente.";
   } else {
     echo "Error al eliminar el registro: " . mysqli_error($conn);

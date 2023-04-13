@@ -1,4 +1,7 @@
 <?php
+
+include 'logs.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -25,6 +28,8 @@ if (isset($_POST['id'])) {
     if (mysqli_query($conn, $sql)) {
         $ruta_destino = '../productos/' . $imagen;
         unlink($ruta_destino);
+        $ip_usuario = $_SERVER['REMOTE_ADDR'];
+                registrarLog("delete_success", "Producto eliminado satisfactoriamente" . $_SESSION['nombre'], $ip_usuario);
         
         echo "Registro eliminado correctamente.";
     } else {

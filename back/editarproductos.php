@@ -1,4 +1,5 @@
 <?php
+include 'logs.php';
 
 $servername = "localhost";
 $username = "root";
@@ -56,6 +57,8 @@ if (isset($_POST['guardar'])) {
   }
 
   $query = "UPDATE ropa SET nombre = '$nombre', marca = '$marca', talla = '$talla', precio = $precio, categoria = '$categoria', imagen = '$imagen' WHERE id = $id";
+  $ip_usuario = $_SERVER['REMOTE_ADDR'];
+                registrarLog("update_success", "producto actualizado correctamente" . $_SESSION['nombre'], $ip_usuario);
   $result = mysqli_query($conn, $query);
 
   if ($result) {

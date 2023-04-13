@@ -1,4 +1,6 @@
 <?php
+include 'logs.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -26,7 +28,8 @@ if (isset($_POST['nombre']) && isset($_POST['marca']) && isset($_POST['talla']) 
 
     if (move_uploaded_file($imagen_temp, $ruta_imagen)) {
         $sql = "INSERT INTO ropa (nombre, marca, talla, precio, categoria, imagen) VALUES ('$nombre', '$marca', '$talla', '$precio', '$categoria', '$imagen')";
-
+        $ip_usuario = $_SERVER['REMOTE_ADDR'];
+        registrarLog("insert_success", "Producto registrado satisfactoriamente" . $_SESSION['nombre'], $ip_usuario);
         if (mysqli_query($conn, $sql)) {
             $exito = true;
         } else {
