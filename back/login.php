@@ -1,4 +1,6 @@
 <?php
+include 'logs.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -55,6 +57,9 @@ if (isset($_POST['login'])) {
                 setcookie('remember_email', '', time() - 3600);
             }
             if ($row['rol'] == 'admin') {
+                $ip_usuario = $_SERVER['REMOTE_ADDR'];
+                registrarLog("login_success", "Inicio de sesión exitoso para el Administrador" . $_SESSION['nombre'], $ip_usuario);
+
                echo "<script>
                 Swal.fire({
                     icon: 'success',
@@ -66,6 +71,8 @@ if (isset($_POST['login'])) {
                 </script>";
                 exit;       
             } else {
+                $ip_usuario = $_SERVER['REMOTE_ADDR'];
+                registrarLog("login_success", "Inicio de sesión exitoso para el Usuario" . $_SESSION['nombre'], $ip_usuario);
                 echo "<script>
                 Swal.fire({
                     icon: 'success',
@@ -79,6 +86,8 @@ if (isset($_POST['login'])) {
             }
         }
     } else {
+        $ip_usuario = $_SERVER['REMOTE_ADDR'];
+        registrarLog("login_failure", "Intento de inicio de sesión fallido para el usuario " . $_POST['email'], $ip_usuario);
         echo "<script>
         Swal.fire({
           icon: 'error',

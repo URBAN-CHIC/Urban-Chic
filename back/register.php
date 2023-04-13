@@ -1,5 +1,7 @@
 
 <?php
+include 'logs.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -89,12 +91,15 @@ $pass = password_hash($pass, PASSWORD_DEFAULT);
 $sql = "CALL registerUser('$nombre', '$apellidoPaterno', '$apellidoMaterno', '$email', '$pass', '$telefono', '$sexo', $edad, '$rol')";
 
 if (mysqli_query($conn, $sql)) {
+  $ip_usuario = $_SERVER['REMOTE_ADDR'];
+  registrarLog("register", "Nuevo usuario registrado en la aplicación." . $email, $ip_usuario);
+
   echo "<script>
     Swal.fire({
       icon: 'success',
       title: 'Usuario registrado correctamente'
     }).then(function() {
-      window.location.href = 'login.php';
+      window.location.href = 'loguear.php';
     });
   </script>";
 } else {

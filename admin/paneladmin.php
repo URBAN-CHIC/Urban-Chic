@@ -42,6 +42,12 @@ include "../back/rolVerify.php";
             <i class="bi bi-person"></i> <span class="align-middle">Usuarios</span>
             </a>
 					</li>
+
+          <li class="sidebar-item">
+						<a class="sidebar-link d-page" data-view="logs">
+            <i class="bi bi-person"></i> <span class="align-middle">Logs</span>
+            </a>
+					</li>
 		</nav>
 
 		<div class="main">
