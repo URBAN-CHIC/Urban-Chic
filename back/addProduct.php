@@ -38,7 +38,7 @@ if (isset($_POST['nombre']) && isset($_POST['marca']) && isset($_POST['talla']) 
 }
 
 ?>
-
+<link rel="stylesheet" href="../styles/addproducto.css">
 <div class="container mt-5">
     <h2>Agregar Producto</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">

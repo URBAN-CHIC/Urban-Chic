@@ -14,46 +14,55 @@ include "../back/rolVerify.php";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="../styles/urbanChics.css">
     <title>Urban Chic</title>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img style="width: 100px;" class="img-fluid" src="../img/logoNF.png" alt=""></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link text-white" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorías
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Ropa Mujer</a></li>
-            <li><a class="dropdown-item" href="#">Ropa Hombre</a></li>
-            <li><a class="dropdown-item" href="#">Accesorios</a></li>
-            <li><a class="dropdown-item" href="#">Calzado</a></li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img style="width: 100px;" class="img-fluid" src="../img/logoNF.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="../views/loguear.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Iniciar Sesión
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="../views/registro.php">Registrarse</a></li>
+                
+              </ul>
+            </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorías
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Ropa Mujer</a></li>
+              <li><a class="dropdown-item" href="#">Ropa Hombre</a></li>
+              <li><a class="dropdown-item" href="#">Accesorios</a></li>
+              <li><a class="dropdown-item" href="#">Calzado</a></li>
+            </ul>
+          </li>
+         
+          
+        </ul>
+        <a href=""><i class="bi bi-cart text-white me-3"></i></a>
+        <form class="d-flex" role="search">
+          
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+  
 
 
 <div class="container-fluid">
@@ -67,6 +76,43 @@ include "../back/rolVerify.php";
   </div>
 </div>
             
+<footer class="bg-dark text-white">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h4>Urban Chic</h4>
+        <p>Encuentra la mejor ropa para ti en nuestra tienda en línea.</p>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h4>Contáctanos</h4>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-geo-alt-fill"></i> Calle 42 #25-21, Aguascalientes, México.</li>
+          <li><i class="bi bi-telephone-fill"></i> +52 449 123 4567</li>
+          <li><i class="bi bi-envelope-fill"></i> info@urbanchic.com</li>
+        </ul>
+        <form action="#" method="post">
+
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="message" placeholder="Mensaje" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <h4>Síguenos</h4>
+        <ul class="list-unstyled">
+          <li><a href="#"><i class="bi bi-facebook">urbanChic(Oficial)</i></a></li>
+          <li><a href="#"><i class="bi bi-instagram">urbanChic(Oficial)</i></a></li>
+          <li><a href="#"><i class="bi bi-twitter">urbanChic_Oficial</i></a></li>
+          <li><a href="#"><i class="bi bi-whatsapp">+52 449 123 4567</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

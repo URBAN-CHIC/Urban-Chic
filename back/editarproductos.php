@@ -67,7 +67,7 @@ if (isset($_POST['guardar'])) {
 
 mysqli_close($conn);
 ?>
-
+<link rel="stylesheet" href="../styles/editarproductos.css">
 <h1>Editar ropa</h1>
 <?php if (isset($_GET['id'])) { ?>
   <form action="" method="POST" enctype="multipart/form-data">
