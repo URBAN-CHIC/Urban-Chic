@@ -28,6 +28,7 @@ if (isset($_GET['id'])) {
     $talla = $fila['talla'];
     $precio = $fila['precio'];
     $categoria = $fila['categoria'];
+    $imagen_actual = $fila['imagen'];
   } else {
     echo "No se encontró el registro con ID $id.";
   }
@@ -41,7 +42,20 @@ if (isset($_POST['guardar'])) {
   $precio = mysqli_real_escape_string($conn, $_POST['precio']);
   $categoria = mysqli_real_escape_string($conn, $_POST['categoria']);
 
-  $query = "UPDATE ropa SET nombre = '$nombre', marca = '$marca', talla = '$talla', precio = $precio, categoria = '$categoria' WHERE id = $id";
+  if ($_FILES['imagen']['error'] == 0) {
+    if (!empty($imagen_actual)) {
+      unlink("../productos/" . $imagen_actual);
+    }
+
+    $imagen = $_FILES['imagen']['name'];
+    $ruta_temporal = $_FILES['imagen']['tmp_name'];
+    $ruta_destino = '../productos/' . $imagen;
+    move_uploaded_file($ruta_temporal, $ruta_destino);
+  } else {
+    $imagen = $imagen_actual;
+  }
+
+  $query = "UPDATE ropa SET nombre = '$nombre', marca = '$marca', talla = '$talla', precio = $precio, categoria = '$categoria', imagen = '$imagen' WHERE id = $id";
   $result = mysqli_query($conn, $query);
 
   if ($result) {
@@ -56,7 +70,7 @@ mysqli_close($conn);
 
 <h1>Editar ropa</h1>
 <?php if (isset($_GET['id'])) { ?>
-  <form action="" method="POST">
+  <form action="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" value="<?php echo $nombre; ?>"><br>
@@ -68,6 +82,8 @@ mysqli_close($conn);
     <input type="number" step="0.01" name="precio" value="<?php echo $precio; ?>"><br>
     <label for="categoria">Categoría:</label>
     <input type="text" name="categoria" value="<?php echo $categoria; ?>"><br>
+    <label for="imagen">Imagen:</label>
+    <input type="file" name="imagen"><br>
     <input type="submit" name="guardar" value="Guardar cambios">
   </form>
 <?php } else {

@@ -141,13 +141,14 @@ CREATE TABLE ropa (
   talla VARCHAR(10) NOT NULL,
   precio DECIMAL(10, 2) NOT NULL,
   categoria VARCHAR(255) NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
 
 -- insertar datos
 INSERT INTO ropa (nombre, marca, talla, precio, categoria)
 VALUES ('Camisa blanca', 'Zara', 'M', 29.99, 'ropa mujer'),
-       ('Jeans azules', 'Levi's', '32x32', 49.99, 'ropa hombre'),
+       ('Jeans azules', 'Levi', '32x32', 49.99, 'ropa hombre'),
        ('Botas negras', 'Dr. Martens', '7', 129.99, 'calzado'),
        ('Pulsera plateada', 'Pandora', 'Única', 19.99, 'accesorios');
 
