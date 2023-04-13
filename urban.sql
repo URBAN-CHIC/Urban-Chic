@@ -152,3 +152,9 @@ VALUES ('Camisa blanca', 'Zara', 'M', 29.99, 'ropa mujer'),
        ('Botas negras', 'Dr. Martens', '7', 129.99, 'calzado'),
        ('Pulsera plateada', 'Pandora', 'Única', 19.99, 'accesorios');
 
+CREATE TABLE logs (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  fecha DATETIME NOT NULL,
+  tipo VARCHAR(50) NOT NULL,
+  mensaje VARCHAR(255) NOT NULL
+);
