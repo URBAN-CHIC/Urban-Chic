@@ -29,11 +29,11 @@ include "../back/rolVerify.php";
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="../views/loguear.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Iniciar Sesión
+              <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Perfil
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="../views/registro.php">Registrarse</a></li>
+                <li><a class="dropdown-item" href="../views/registro.php">Cerrar Sesión</a></li>
                 
               </ul>
             </li>
@@ -77,31 +77,32 @@ include "../back/rolVerify.php";
 </div>
             
 <footer class="bg-dark text-white">
-  <div class="container py-5">
+  <div class="container py-3">
     <div class="row">
-      <div class="col-md-4 mb-4 mb-md-0">
+      <div class="col-md-3">
         <h4>Urban Chic</h4>
         <p>Encuentra la mejor ropa para ti en nuestra tienda en línea.</p>
       </div>
-      <div class="col-md-4 mb-4 mb-md-0">
+      <div class="col-md-3">  
+        <h4>Suscribete</h4>
+        <p>Recibe nuestras novedades y promociones en tu correo electrónico.</p>
+        <form action="#" method="post">
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Suscribirse</button>
+        </form>
+      </div>
+      <div class="col-md-3">
         <h4>Contáctanos</h4>
         <ul class="list-unstyled">
           <li><i class="bi bi-geo-alt-fill"></i> Calle 42 #25-21, Aguascalientes, México.</li>
           <li><i class="bi bi-telephone-fill"></i> +52 449 123 4567</li>
           <li><i class="bi bi-envelope-fill"></i> info@urbanchic.com</li>
         </ul>
-        <form action="#" method="post">
-
-          <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" name="message" placeholder="Mensaje" rows="3" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
       </div>
-      <div class="col-md-4">
+      
+      <div class="col-md-3">
         <h4>Síguenos</h4>
         <ul class="list-unstyled">
           <li><a href="#"><i class="bi bi-facebook">urbanChic(Oficial)</i></a></li>
@@ -110,6 +111,7 @@ include "../back/rolVerify.php";
           <li><a href="#"><i class="bi bi-whatsapp">+52 449 123 4567</i></a></li>
         </ul>
       </div>
+      
     </div>
   </div>
 </footer>
