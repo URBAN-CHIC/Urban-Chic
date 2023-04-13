@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $remember = isset($_POST['remember']);
 
-    $sql = "SELECT usuarios.*, clientes.nombre, clientes.apellidoPaterno FROM usuarios 
+    $sql = "SELECT usuarios.*, clientes.nombre, clientes.apellidoPaterno, clientes.apellidoMaterno, clientes.telefono, clientes.sexo, clientes.edad FROM usuarios 
         JOIN clientes ON usuarios.id_cliente = clientes.id 
         WHERE usuarios.email = '$email'";
 
@@ -47,8 +47,12 @@ if (isset($_POST['login'])) {
             $_SESSION['rol'] = $row['rol'];
             $_SESSION['nombre'] = $row['nombre'];
             $_SESSION['apellido_paterno'] = $row['apellidoPaterno'];
+            $_SESSION['apellido_materno'] = $row['apellidoMaterno'];
             $_SESSION['email'] = $row['email'];
-
+            $_SESSION['telefono'] = $row['telefono'];
+            $_SESSION['sexo'] = $row['sexo'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['edad'] = $row['edad'];
           
             
             if ($remember) {

@@ -15,7 +15,7 @@ if (empty($_SESSION['carrito'])) {
 ?>
 
 <h1>Carrito de compras</h1>
-
+  
 <table>
   <thead>
     <tr>

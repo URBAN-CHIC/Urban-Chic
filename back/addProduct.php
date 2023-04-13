@@ -12,7 +12,7 @@ if (!$conn) {
     die("La conexión ha fallado: " . mysqli_connect_error());
 }
 else{
-    echo "Conexión exitosa";
+   // echo "Conexión exitosa";
 }
 
 if (isset($_POST['nombre']) && isset($_POST['marca']) && isset($_POST['talla']) && isset($_POST['precio']) && isset($_POST['categoria']) && isset($_FILES['imagen'])) {

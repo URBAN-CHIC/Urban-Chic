@@ -15,5 +15,5 @@ $(document).ready(function() {
 var button1 = document.getElementById("buttoni");
 
 button1.addEventListener("click", function() {
-  location.href = "../views/urbanChics.php";
+  location.href = "../views/Inicio.php";
 });

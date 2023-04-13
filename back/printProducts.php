@@ -18,8 +18,8 @@ $result = $conn->query($sql);
   <?php
   while($row = $result->fetch_assoc()) {
     ?>
-    <div class="col-sm-6 mt-4 col-md-4 col-lg-3">
-      <div class="card">
+    <div class="col-sm-6 mt-4 mb-5 ms-5 col-md-4 col-lg-3">
+      <div class="card d-flex justify-content-center">
         <img src="../productos/<?php echo $row['imagen']; ?>" class="card-img-top" alt="Imagen del producto" style="width: 250px;">
         <div class="card-body">
           <h5 class="card-title"><?php echo $row['nombre']; ?></h5>

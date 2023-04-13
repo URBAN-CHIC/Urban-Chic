@@ -64,7 +64,6 @@ include "../back/rolVerify.php";
          <?php echo $_SESSION['nombre'] . ' ' . $_SESSION['apellido_paterno']; ?>
         </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" style="position: absolute; right: 0;">
-            <li><a class="dropdown-item" href="#">Opción 1</a></li>
             <li><a class="dropdown-item" href="#">Ver perfil</a></li>
             <li><a class="dropdown-item" href="../back/logout.php">Cerrar Sesion</a></li>
           </ul>

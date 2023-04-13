@@ -1,9 +1,3 @@
-<?php 
-include "../back/checkSession.php"; 
-include "../back/rolVerify.php";
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,11 +24,11 @@ include "../back/rolVerify.php";
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <?php echo $_SESSION['nombre'] . ' ' . $_SESSION['apellido_paterno']; ?>
+                Perfil
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href=" profile.php">Ver perfil</a></li>
-                <li><a class="dropdown-item" href="../back/logout.php">Cerrar Sesión</a></li>
+              <li><a class="dropdown-item" href="../views/loguear.php">Iniciar sesion</a></li>
+                <li><a class="dropdown-item" href="../views/registro.php">Registrarse</a></li>
               </ul>
             </li>
           </ul>
@@ -76,7 +70,7 @@ include "../back/rolVerify.php";
   </div>
 </div>
             
-<footer class="bg-dark text-white fixed-bottom  ">
+<footer class="bg-dark text-white fixed-bottom">
   <div class="container py-3">  
     <div class="row">
       <div class="col-md-3">
